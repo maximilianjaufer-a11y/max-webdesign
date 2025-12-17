@@ -3,16 +3,17 @@
 ======================== */
 :root {
     --primary-color: #0f172a;
-    --accent-color: #06b6d4;
-    --accent-hover: #0891b2;
+    --accent-color: #1fa65a;
+    --accent-hover: #167a3f;
     --text-dark: #1e293b;
     --text-light: #64748b;
-    --bg-light: #f8fafc;
+    --bg-light: #eef9ef;
     --bg-white: #ffffff;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 6px 18px rgba(11, 37, 69, 0.06);
+    --shadow-lg: 0 20px 40px rgba(11, 37, 69, 0.08);
     --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+    --radius: 12px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -34,6 +35,49 @@ body {
     line-height: 1.6;
     font-size: 16px;
 }
+
+/* Utility container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Skip-link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus, .skip-link:active {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-white);
+    color: var(--primary-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-md);
+    z-index: 1200;
+}
+
+/* Branding + nav */
+.brand {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+.nav-list { list-style: none; display: flex; gap: 1rem; align-items: center; }
+.nav-list a { color: var(--text-dark); text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 8px; }
 
 /* ========================
    NAVIGATION
@@ -115,7 +159,7 @@ main {
     padding: 4rem clamp(20px, 5%, 40px);
     text-align: center;
     background-color: var(--bg-white);
-    border-radius: 1.5rem;
+    border-radius: var(--radius);
     box-shadow: var(--shadow-lg);
 }
 
@@ -140,22 +184,33 @@ main {
     background-color: var(--accent-color);
     color: var(--bg-white);
     padding: 1rem 2.5rem;
-    border-radius: 0.75rem;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
-    border: 2px solid var(--accent-color);
+    border: 1px solid var(--accent-color);
     font-size: 1.1rem;
-    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 10px 25px rgba(31, 166, 90, 0.28);
 }
 
 .contact .btn:hover {
-    background-color: transparent;
-    border-color: var(--accent-color);
-    color: var(--accent-color);
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 15px 40px rgba(31, 166, 90, 0.36);
 }
+
+/* Contact form */
+.contact-form { background: transparent; padding: 0; margin-top: 1.5rem; }
+.contact-form .form-row { margin-bottom: 1rem; display: flex; gap: 0.75rem; }
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(15,20,32,0.06); font-size: 1rem; color: var(--text-dark);
+}
+.contact-form textarea { resize: vertical; }
+.contact-form button { background: var(--accent-color); color: white; padding: 0.875rem 1.75rem; border-radius: 10px; border: 1px solid transparent; font-weight: 600; cursor: pointer; transition: var(--transition); }
+.contact-form button:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+/* Footer */
+.footer { background: linear-gradient(180deg, rgba(31,166,90,0.05), transparent); padding: 2.25rem 0; margin-top: 2rem; text-align: center; }
+.footer p { color: #52606d; margin: 0; }
 
 /* ========================
    RESPONSIVE DESIGN
