@@ -9,10 +9,12 @@
 <body>
 
     <!-- NAVIGATION -->
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
     <header>
-        <nav>
-            <h1>Max Massage</h1>
-            <ul>
+        <nav class="container" aria-label="Hauptnavigation">
+            <a class="brand" href="index.html">Max Massage</a>
+            <ul class="nav-list">
                 <li><a href="index.html">Start</a></li>
                 <li><a href="#services">Leistungen</a></li>
                 <li><a href="kontakt.html">Kontakt</a></li>
@@ -21,40 +23,139 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Entspannung & Wohlbefinden</h2>
-            <p>Gönn dir eine Auszeit und genieße professionelle Massagen.</p>
-            <a href="kontakt.html" class="btn">Jetzt Termin buchen</a>
+    <section class="hero" aria-label="Hero">
+        <div class="hero-text container">
+            <p class="eyebrow">Professionelle Massagen</p>
+            <h1>Entspannung & Wohlbefinden</h1>
+            <p class="lead">Gönn dir eine Auszeit — individuelle Behandlungen für Körper und Seele.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn">Jetzt Termin buchen</a>
+                <a href="#services" class="btn btn--ghost">Leistungen ansehen</a>
+            </div>
         </div>
     </section>
 
     <!-- LEISTUNGEN -->
     <section id="services" class="services">
-        <h2>Unsere Leistungen</h2>
-        <div class="service-cards">
-            <div class="card">
-                <h3>Entspannungsmassage</h3>
-                <p>Löse Verspannungen und fühle dich erfrischt.</p>
-            </div>
-            <div class="card">
-                <h3>Sportmassage</h3>
-                <p>Ideal für Sportler zur Regeneration und Prävention.</p>
-            </div>
-            <div class="card">
-                <h3>Fußmassage</h3>
-                <p>Entspanne deinen Körper über die Reflexzonen der Füße.</p>
+        <div class="container">
+            <h2>Unsere Leistungen</h2>
+            <div class="service-cards">
+                <article class="card">
+                    <div class="card-icon">💆‍♂️</div>
+                    <h3>Entspannungsmassage</h3>
+                    <p>Löse Verspannungen und fühle dich erfrischt. Sanfte Techniken für tiefes Loslassen.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🏃‍♀️</div>
+                    <h3>Sportmassage</h3>
+                    <p>Gezielte Behandlung zur Regeneration, Mobilisierung und Leistungsförderung.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🦶</div>
+                    <h3>Fußmassage</h3>
+                    <p>Entspanne deinen Körper über die Reflexzonen der Füße — ideal zum Abschluss.</p>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- KONTAKT -->
     <section id="contact" class="contact">
-        <h2>Kontakt</h2>
-        <p>Schreib mir eine Nachricht oder buche direkt einen Termin:</p>
-        <a href="mailto:maximilianjaufer@gmail.com" class="btn">E-Mail senden</a>
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p class="lead">Schreib mir eine Nachricht oder buche direkt einen Termin — ich antworte schnell und persönlich.</p>
+            <form class="contact-form" action="#" method="post" aria-label="Kontaktformular">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Ihr Name" required>
+                    <input type="email" name="email" placeholder="E-Mail" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" name="phone" placeholder="Telefon (optional)">
+                </div>
+                <div class="form-row">
+                    <textarea name="message" rows="5" placeholder="Ihre Nachricht" required></textarea>
+                </div>
+                <div class="form-row form-actions">
+                    <button type="submit" class="btn">Nachricht senden</button>
+                    <a href="mailto:maximilianjaufer@gmail.com" class="btn btn--ghost">E-Mail senden</a>
+                </div>
+            </form>
+        </div>
     </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Was Kundinnen & Kunden sagen</h2>
+            <div class="testimonials-grid">
+                <blockquote class="testimonial-card">
+                    <p>"Die Behandlung war großartig — ich fühle mich wie neu geboren. Sehr einfühlsam und professionell."</p>
+                    <cite>— Anna B.</cite>
+                </blockquote>
+                <blockquote class="testimonial-card">
+                    <p>"Ruhige Atmosphäre, spürbare Wirkung. Termine sind flexibel und gut organisiert."</p>
+                    <cite>— Markus K.</cite>
+                </blockquote>
+                <blockquote class="testimonial-card">
+                    <p>"Top Service. Nach der Sportmassage konnte ich endlich wieder trainieren ohne Schmerzen."</p>
+                    <cite>— Lena S.</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing">
+        <div class="container">
+            <h2>Preise & Pakete</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Kurz & Effektiv</h3>
+                    <p class="price">30 Min — 35€</p>
+                    <p>Perfekt zur schnellen Lockerung und Stressabbau.</p>
+                </div>
+                <div class="price-card price-card--featured">
+                    <h3>Standard</h3>
+                    <p class="price">60 Min — 60€</p>
+                    <p>Empfohlen für eine umfassende Entspannung und Regeneration.</p>
+                </div>
+                <div class="price-card">
+                    <h3>Premium</h3>
+                    <p class="price">90 Min — 85€</p>
+                    <p>Tiefenentspannung mit intensiven Techniken.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Häufige Fragen</h2>
+            <div class="faq-list">
+                <details>
+                    <summary>Wie buche ich einen Termin?</summary>
+                    <p>Sie können per E-Mail, Telefon oder über das Kontaktformular einen Termin anfragen. Wir melden uns zeitnah.</p>
+                </details>
+                <details>
+                    <summary>Welche Zahlungsmittel werden akzeptiert?</summary>
+                    <p>Barzahlung oder Überweisung. Auf Wunsch stellen wir eine Quittung aus.</p>
+                </details>
+                <details>
+                    <summary>Gibt es Parkmöglichkeiten?</summary>
+                    <p>Ja, es stehen kostenlose Parkplätze in der Nähe zur Verfügung.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Max Massage — Entspannung mit Herz</p>
+        </div>
+    </footer>
 
 </body>
 </html>
-
