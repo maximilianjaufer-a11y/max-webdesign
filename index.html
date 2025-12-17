@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- NAV -->
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
   <header>
-    <nav>
-      <h1>Max Webdesign</h1>
-      <ul>
+    <nav class="container" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html">Max Webdesign</a>
+      <ul class="nav-list">
         <li><a href="index.html">Start</a></li>
         <li><a href="beispiel.html">Beispiel Website</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
@@ -22,72 +22,114 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <h2>Moderne Websites mit HTML & CSS</h2>
-    <p>Sauberer Code. Schnelle Ladezeiten. Klarer Fokus.</p>
-  </section>
-
-  <!-- LEISTUNGEN -->
-  <section id="services">
-    <h2>Was ich anbiete</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Individuelles Webdesign</h3>
-        <p>
-          Jede Website wird von mir von Grund auf mit HTML & CSS erstellt – 
-          kein Baukastensystem, kein unnötiger Code.
-        </p>
+  <main id="main">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-content container">
+        <h1>Moderne Websites mit Sinn & Stil</h1>
+        <p class="lead">Ich baue klar strukturierte, schnelle und wartbare Websites — zugeschnitten auf dein Business.</p>
+        <div class="hero-actions">
+          <a href="beispiel.html" class="btn">Beispiele ansehen</a>
+          <a href="kontakt.html" class="btn btn--ghost">Kontakt</a>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Responsive & schnell</h3>
-        <p>
-          Optimiert für Smartphone, Tablet und Desktop mit Fokus auf Performance
-          und Benutzerfreundlichkeit.
-        </p>
+    <!-- LEISTUNGEN -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2>Was ich anbiete</h2>
+        <div class="cards service-cards">
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>Individuelles Webdesign</h3>
+            <p>Design, das zur Marke passt — pixelgenau umgesetzt in sauberem HTML &amp; CSS.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Performance &amp; SEO</h3>
+            <p>Optimierte Ladezeiten, saubere Struktur und Basis-SEO für bessere Auffindbarkeit.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🔧</div>
+            <h3>Wartung &amp; Beratung</h3>
+            <p>Updates, kleine Änderungen und klare Beratung ohne Fachchinesisch.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Einfach & verständlich</h3>
-        <p>
-          Klare Struktur, verständliche Inhalte und eine Website,
-          die genau das zeigt, was wichtig ist.
-        </p>
+    <!-- ÜBER MICH -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>Über mich</h2>
+        <p class="lead">Ich bin Max, Webentwickler mit Fokus auf sauberen Code, Performance und klarer Benutzerführung.</p>
+        <p>Ich arbeite direkt mit kleinen Unternehmen, Selbstständigen und lokalen Betrieben zusammen. Mein Ziel: Lösungen, die funktionieren — ohne Schnickschnack.</p>
+        <p>Transparente Preise, kurze Kommunikationswege und saubere Umsetzung sind bei mir Standard.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ÜBER MICH -->
-  <section id="about">
-    <h2>Über mich</h2>
+    <!-- PRICING -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2>Transparent &amp; Fair — Meine Preise</h2>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>1-Seiter</h3>
+            <p class="price">40€</p>
+            <p class="price-desc">Perfekt für Einzelunternehmer, Freelancer oder kleine Dienstleistungen.</p>
+            <ul class="features">
+              <li>✓ 1 Seite mit allen wichtigen Infos</li>
+              <li>✓ Responsive Design</li>
+              <li>✓ Kontaktformular</li>
+            </ul>
+          </div>
 
-    <p>
-      Ich bin Max und beschäftige mich intensiv mit Webentwicklung,
-      speziell mit HTML und CSS. Mir ist wichtig, Websites nicht nur
-      optisch ansprechend, sondern auch technisch sauber umzusetzen.
-    </p>
+          <div class="price-card price-card--featured">
+            <div class="badge">Beliebt</div>
+            <h3>3-5 Seiter</h3>
+            <p class="price">75€</p>
+            <p class="price-desc">Ideal für Unternehmen, die mehr über sich erzählen möchten.</p>
+            <ul class="features">
+              <li>✓ 3–5 Seiten (Startseite, Portfolio, Über mich, Kontakt, etc.)</li>
+              <li>✓ Responsive Design</li>
+              <li>✓ Kontaktformular &amp; SEO-Basics (Search Engine Optimization)</li>
+            </ul>
+          </div>
 
-    <p>
-      Ich arbeite bewusst ohne vorgefertigte Themes oder Baukästen.
-      Dadurch entstehen schlanke Websites mit schnellen Ladezeiten
-      und klarer Struktur – genau das, was kleine Unternehmen
-      und Privatpersonen brauchen.
-    </p>
+          <div class="price-card">
+            <h3>Hosting &amp; Wartung</h3>
+            <p class="price">20€<span class="price-period">/Monat</span></p>
+            <p class="price-desc">Deine Website läuft zuverlässig 24/7 online.</p>
+            <ul class="features">
+              <li>✓ Hosting inkl. Domain</li>
+              <li>✓ SSL-Zertifikat (HTTPS)</li>
+              <li>✓ Regelmäßige Updates &amp; Backups</li>
+            </ul>
+          </div>
+        </div>
+        <p class="pricing-note">*Änderungen &amp; Anpassungen können zusätzlich berechnet werden. Genaue Absprache im Gespräch.</p>
+      </div>
+    </section>
 
-    <p>
-      Mir ist eine direkte Kommunikation wichtig. Keine komplizierten Prozesse,
-      keine unnötigen Fachbegriffe – sondern eine ehrliche Zusammenarbeit
-      und ein Ergebnis, das funktioniert.
-    </p>
-  </section>
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+      <div class="container">
+        <div class="card">
+          <h3>Bereit für eine bessere Website?</h3>
+          <p>Schreib mir kurz dein Projekt — ich melde mich mit einem klaren Vorschlag.</p>
+          <a href="kontakt.html" class="btn">Jetzt anfragen</a>
+        </div>
+      </div>
+    </section>
 
-  
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Max Webdesign</p>
-  </footer>
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Max Webdesign</p>
+      </div>
+    </footer>
+  </main>
 
 </body>
 </html>
