@@ -3,11 +3,12 @@
 ======================== */
 :root {
     --primary-color: #0f172a;
-    --accent-color: #06b6d4;
-    --accent-hover: #0891b2;
+    /* Grünes Farbschema speziell für die Massage-Beispielseite */
+    --accent-color: #1fa65a; /* helles Grün */
+    --accent-hover: #167a3f; /* dunkleres Grün */
     --text-dark: #1e293b;
     --text-light: #64748b;
-    --bg-light: #f8fafc;
+    --bg-light: #f6fbf6;
     --bg-white: #ffffff;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
@@ -33,6 +34,73 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     font-size: 16px;
+}
+
+/* Layout utility */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-white);
+    color: var(--primary-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-md);
+    z-index: 1200;
+}
+
+/* Branding + nav tweaks */
+.brand {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+.nav-list { list-style: none; display: flex; gap: 1rem; align-items: center; }
+.nav-list a { color: var(--text-dark); text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 8px; }
+
+/* Hero refinements */
+.hero-text .eyebrow { color: rgba(255,255,255,0.85); font-weight: 600; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.hero-text h1 { font-size: clamp(2rem, 6vw, 3.75rem); margin: 0.25rem 0 1rem; }
+.hero-text .lead { font-size: 1.05rem; color: rgba(255,255,255,0.92); max-width: 50ch; margin: 0 auto 1.5rem; }
+.hero-actions { display: flex; gap: 0.75rem; justify-content: center; }
+
+/* Buttons already exist as .btn */
+
+/* Cards: slightly tighter text and subtle accent bar */
+.service-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.card { text-align: center; }
+.card-icon { font-size: 2.25rem; margin-bottom: 0.75rem; }
+.card h3 { margin-bottom: 0.5rem; }
+.card p { margin: 0; color: var(--text-light); }
+
+/* Footer */
+.footer { background: linear-gradient(180deg, rgba(31,166,90,0.05), transparent); padding: 2.25rem 0; margin-top: 3rem; }
+.footer p { color: var(--text-muted); text-align: center; margin: 0; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .hero-text .lead { max-width: 100%; }
+    .hero-actions { flex-direction: column; }
 }
 
 /* ========================
@@ -104,7 +172,11 @@ nav a:hover {
 ======================== */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0891b2 100%);
+    /* Bild als Hintergrund (massage.png) + grüner Overlay, passend zum Motiv */
+    background-image: linear-gradient(rgba(15,23,42,0.45), rgba(31,166,90,0.20)), url('massage.png');
+    background-size: cover, cover;
+    background-position: center center;
+    background-repeat: no-repeat, no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,8 +195,8 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(15, 23, 42, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(31,166,90,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(15, 23, 42, 0.08) 0%, transparent 50%);
     z-index: 0;
 }
 
@@ -185,14 +257,14 @@ nav a:hover {
     border: 2px solid var(--accent-color);
     cursor: pointer;
     font-size: 1.1rem;
-    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 10px 25px rgba(31, 166, 90, 0.28);
 }
 
 .hero-text .btn:hover {
     background-color: transparent;
     border-color: var(--bg-white);
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 15px 40px rgba(31, 166, 90, 0.36);
 }
 
 /* ========================
@@ -273,6 +345,51 @@ nav a:hover {
 }
 
 /* ========================
+    CONTACT FORM
+======================== */
+.contact-form { background: var(--bg-white); padding: 1.25rem; border-radius: 12px; box-shadow: var(--shadow-sm); }
+.contact-form .form-row { margin-bottom: 0.75rem; display: flex; gap: 0.75rem; }
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form input[type="tel"], .contact-form textarea {
+     width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(15,20,32,0.06); font-size: 1rem; color: var(--text-dark);
+}
+.contact-form textarea { resize: vertical; }
+.contact-form .form-actions { display: flex; gap: 0.75rem; align-items: center; }
+
+/* ========================
+    TESTIMONIALS
+======================== */
+.testimonials { padding: 3rem 0; }
+.testimonials h2 { text-align: center; margin-bottom: 1.5rem; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.testimonial-card { background: var(--bg-white); padding: 1.25rem; border-radius: 12px; box-shadow: var(--shadow-sm); }
+.testimonial-card p { color: var(--text-dark); margin-bottom: 0.5rem; }
+.testimonial-card cite { color: var(--text-muted); font-size: 0.95rem; }
+
+/* ========================
+    PRICING
+======================== */
+.pricing { padding: 3rem 0; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.price-card { background: var(--bg-white); padding: 1.25rem; border-radius: 12px; text-align: center; box-shadow: var(--shadow-sm); border-top: 4px solid var(--accent-color); }
+.price-card--featured { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.price-card .price { font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0; color: var(--primary-color); }
+
+/* ========================
+    FAQ
+======================== */
+.faq { padding: 2.5rem 0; }
+.faq-list { max-width: 900px; margin: 0 auto; display: grid; gap: 0.5rem; }
+details { background: var(--bg-white); padding: 0.9rem 1rem; border-radius: 10px; box-shadow: var(--shadow-sm); }
+summary { cursor: pointer; font-weight: 600; }
+details[open] { box-shadow: var(--shadow-md); }
+
+/* small responsive tweaks */
+@media (max-width: 768px) {
+     .contact-form .form-row { flex-direction: column; }
+     .pricing-grid { grid-template-columns: 1fr; }
+}
+
+/* ========================
    CONTACT SECTION
 ======================== */
 .contact,
@@ -313,7 +430,7 @@ nav a:hover {
     transition: var(--transition);
     border: 2px solid var(--accent-color);
     font-size: 1.1rem;
-    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 10px 25px rgba(31, 166, 90, 0.28);
 }
 
 .contact .btn:hover,
@@ -322,7 +439,7 @@ nav a:hover {
     border-color: var(--accent-color);
     color: var(--accent-color);
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 15px 40px rgba(31, 166, 90, 0.36);
 }
 
 /* ========================
